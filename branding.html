@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Pepperblack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+ <header>
+  <!-- Botón a la izquierda -->
+  <div class="create">
+    <button class="svg-button">
+      <span>Create With Us</span>
+      <svg class="circle-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658.84 193.62">
+        <path d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64c-130,47-97,107,12,124s259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+          fill="none"
+          stroke="#fff"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="10" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Logo centrado -->
+  <div class="logo" aria-label="pepperblack logo">
+    <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 1174.32 270.35">
+  <path d="M143.32,137.38c-4.19,12.26-17.87,32.36-1.92,37.26,36.17,11.11,52.67-22.05,46.05-53.54,27.96,3.77,18.28,53.48,55.05,48.91,11.33-37.1-21.67-77.04-60.54-59.82-6.25-17.46,33.89-11.97,41.04-10.61,27.07,5.14,30.36,25.61,41.69,37.76,5.33,5.72,8.82-22.51,21.91-16.25,40.83,127.01,76.89-32.3-13.83-10.99l-2.62-10.74c39.41-6.53,56.44,8.01,82.62,32.58-1.46-30.81,30.89-50.48,55.63-30.31,32.76,26.71-36.36,67.16,2.45,73.96,32.62,5.71,57.14-36.08,57.28-62.99.02-4.17-13.55-3.91-15.85-10.75-2.2-6.57,2.93-18.32,8.03-18.7,6.71-.5,14.78,14.44,18.04,15.82,12.55,5.3,34.59,3.08,42.78,11.08,11.44,11.17,17.6,71.22,43.01,64.8,26.83-6.78,6.09-89.58,9.2-116.31,3.26-27.99,15.92-65.41,51.54-57.45,17.24,3.86-7.23,111.73-18.37,128.21,13.62,11.13,10.77-7.93,16.99-15.68,24.86-30.98,53.95,1.22,60.12-3.48-17.04-31.32,1.09-128.63,49.6-105.96,17.67,8.26,1.67,66.86-1.62,85.35-4.96,27.86-21.75,35.5-3.03,66.06,36.3,59.27,36.05-35.83,62.18-51.21,15.03-8.85,67.67-8.4,52.71,5.79-8.04-.7-15.11-5.62-23.58-4.46-41.85,5.7-25.79,80.74,1.89,61.88l18.9-46.48c12.55,11.1,27.95,60.64,49.54,54.28,17.32-5.11-3.42-53.12,25.09-73.18,22.53-15.85,53.55-5.46,55,22.05,1.87,35.51-44.93,8.8-16.63-11.36-29.59-22.39-29.31,5.9-22.83,28.09,10.5,35.93,25.72,41.46,61.52,29,2.52,1.81,2.52,3.62,0,5.44-36.17,49.79-80.45-5.33-85.45-5.35-8.93-.03-33.35,55.02-74.32-.09-8.39,28.81-27.48,30.57-51.37,16.26-5.05-3.02-2.22-11.03-6.67-10.93-13.57.3-31.14,35.57-60.78,11.19-8.8-7.24-13.97-36.28-24.52-27.35-2.43,2.05-1.92,16.32-18.04,23.07-15.91,6.66-40.89.88-48.64,6.39-6.86,4.88-1.05,30.79-18.92,30.1-11.29-.44-11.56-37.99-22.09-43.23-7.98-3.97-11.06,16.68-30.06,19.52-19.5,2.92-33.29-14.86-41.8-30.18-6.59-11.86-15.52-62.39-35.49-49.18-3.37,2.23-6.13,46.39-38.91,67.68-44.11,28.64-72.77-10.88-76.78-7.87-.58.44-.65,8.8-5.79,13.24-20.06,17.34-37.14-3.34-54.96-13.26-3.73,4.67,15.98,47.23,16.34,57.61.47,13.35-16.35,50.81-27.49,31.16-7.37-13-7.03-63.18-16.25-70.26-5.53-4.25-18.2,1.61-26.77-.37-15.27-3.51-19.38-17.91-34.09-18.09,18.93,11.59,21.2,111.91-5.46,92.34-4.4-3.23-21.38-85.38-16.65-97.83-27.93,26.86-68.63,38.6-90.91-.06-2.48-.14-9.84,24.47-28.44,26.08-11.91,1.03-39.49-30.95-40.32-12.5-.3,6.79,17.54,34.79,16.74,54.32-.37,9.11-7.51,32.82-19.57,29.98-14.18-3.34-33.99-133.44-19.29-146.74,8.72-7.89,9.42,2.64,12.27,6.98,5.51,8.4,22.33,62.24,40.19,36.65,16.57-23.75-27.35-75.41-55.41-54.63l-2.62-10.74c33.81-3.29,62.53,1.91,79.92,32.48,4.43.15,24.11-61.57,63.24-29.53,18.15,14.86,4.35,22.82.16,35.08-4.24-1.31-8.43-3.71-9.53-8.12-9.28-37.07-15.43,16.42,9.53,8.12ZM622.93,12.32c-1.46-1.4-13.22-2.01-16.59,3.68-7.13,12.05-10.83,60.78,2.86,72.43,5.4-10.29,18.62-71.42,13.73-76.1ZM716.62,110.16c-1.03-15.63,31.35-93.03,8.25-97.79-24.89-5.13-18.04,68.1-15.55,82.01,1.07,5.97-1.43,17.18,7.3,15.79ZM396.81,153.64c10.8-8.75,20.26-57.77-8.11-48.83-16.96,5.34-6.59,60.74,8.11,48.83ZM654.56,122.55c-24.49-28.93-50.88,51.39-28.21,58.02,26.82,7.85,44.19-39.14,28.21-58.02Z" fill="#fff"/>
+  <path d="M992.34,170c8.51-44.64-7.53-86.38,4.62-134.06,4.7-18.46,18.27-41.15,41.49-34.04,20.17,6.18,3.81,87.17-7.51,102.81,2.97,2.47,57.94-34.27,61.12,13.61,2.32,34.97-22.49,36.34-50.06,43.5,35.09,45.21,79.07,49.59,132.34,38.14-37.66,68.16-110.24,36.75-132.44-24.48-12.64,3.96,3.2,48-19.14,43.42-20.9-4.28-10.64-61.88-30.4-43.46.25-1.78-.33-3.7,0-5.44ZM1030.89,88.48c.38-5.71,21.43-96.1-5.42-76.11-6.07,4.52-6.98,57.2-5.58,68.03.97,7.47,3.78,16.75,11,8.08ZM1030.95,148.22c24.05,8.68,37.97-34.33,19.19-37.99-14.36-2.8-17.24,29.97-19.19,37.99Z" fill="#fff"/>
+</svg>
+  </div>
+
+  <!-- Botón de menú a la derecha -->
+  <button aria-label="Menu" class="menu-btn" id="open-menu">
+    <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="60" >
+      <path
+        class="line top"
+        d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+      <path
+        class="line middle"
+        d="m 30,50 h 40" />
+      <path
+        class="line bottom"
+        d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+    </svg>
+  </button>
+
+</header>
+<!-- Añade esto justo antes de tu #menu-overlay -->
+<div id="menu-bubble"></div>
+
+
+
+<!-- Menú oculto por defecto -->
+<div id="menu-overlay" style="display:none; position: fixed; inset:0; z-index: 9999; color: white; padding: 3rem;"> 
+
+  <button aria-label="Close menu" id="close-menu">
+  </button>
+
+  <nav class="space-y-8" style="margin-top: 4rem; font-family: 'Anton', sans-serif; font-size: 2rem;">
+   <a href="index.html" class="menu-item">
+  HOME
+  <div class="svg-wrapper" aria-hidden="true" focusable="false">
+    <svg
+      class="menu-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 658.84 193.62"
+      preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto;"
+    >
+      <path
+        d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64s-97,107,12,124,259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+</a>
+
+    <!-- Repite para los otros items con la misma estructura -->
+   <a href="branding.html" class="menu-item">
+  BRANDING
+  <div class="svg-wrapper" aria-hidden="true" focusable="false">
+    <svg
+      class="menu-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 658.84 193.62"
+      preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto;"
+    >
+      <path
+        d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64s-97,107,12,124,259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+</a>
+<a href="web.html" class="menu-item">
+   PHOTOGRAPHY
+  <div class="svg-wrapper" aria-hidden="true" focusable="false">
+    <svg
+      class="menu-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 658.84 193.62"
+      preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto;"
+    >
+      <path
+        d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64s-97,107,12,124,259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+</a>
+<a href="ux.html" class="menu-item">
+   UX/UI
+  <div class="svg-wrapper" aria-hidden="true" focusable="false">
+    <svg
+      class="menu-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 658.84 193.62"
+      preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto;"
+    >
+      <path
+        d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64s-97,107,12,124,259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+</a>
+  <a href="contact.html" class="menu-item">
+   CONTACT
+  <div class="svg-wrapper" aria-hidden="true" focusable="false">
+    <svg
+      class="menu-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 658.84 193.62"
+      preserveAspectRatio="xMidYMid meet"
+      style="width: 100%; height: auto;"
+    >
+      <path
+        d="M564.4,25.1s-53.99-18.46-137.99-19.46S219.41-.36,89.41,46.64s-97,107,12,124,259.67,33.26,453.84-7.87,51.55-121.09-6.34-137.63c-49-14-81.32-16.28-201-11"
+        fill="none"
+        stroke="#fff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+</a>
+  
+  </nav>
+</div>
+
+
+
+
+  <h1 class="texto1 js-spanize">BRANDING</h1>
+
+<section class="cloneable">
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="overlay-count-row">
+          <div class="count-column">
+            <h2 data-slide-count="step" class="count-heading">01</h2>
+          </div>
+          <div class="count-row-divider"></div>
+          <div class="count-column">
+            <h2 data-slide-count="total" class="count-heading">04</h2>
+          </div>
+        </div>
+        <div class="overlay-nav-row"><button aria-label="previous slide" data-slider="button-prev" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button><button aria-label="previous slide" data-slider="button-next" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow next">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="slider-wrap">
+        <div data-slider="list" class="slider-list">
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f74ff2fe8b0b912b97_slide-1.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº001</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide active">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7cf52dd961b48a1e2_slide-2.avif" loading="lazy" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº002</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7f7cce73267703347_slide-3.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº003</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7ccfd203c82a46798_slide-4.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº004</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cloneable">
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="overlay-count-row">
+          <div class="count-column">
+            <h2 data-slide-count="step" class="count-heading">01</h2>
+          </div>
+          <div class="count-row-divider"></div>
+          <div class="count-column">
+            <h2 data-slide-count="total" class="count-heading">04</h2>
+          </div>
+        </div>
+        <div class="overlay-nav-row"><button aria-label="previous slide" data-slider="button-prev" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button><button aria-label="previous slide" data-slider="button-next" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow next">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="slider-wrap">
+        <div data-slider="list" class="slider-list">
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/cpj8aq3e5plxlbil7ofg.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº001</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide active">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/fgtfpgxwflmvaxj5woj8.jpg" loading="lazy" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº002</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/jzfw68xo0inrfbfjlhtz.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº003</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/fgtfpgxwflmvaxj5woj8.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº004</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="cloneable">
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="overlay-count-row">
+          <div class="count-column">
+            <h2 data-slide-count="step" class="count-heading">01</h2>
+          </div>
+          <div class="count-row-divider"></div>
+          <div class="count-column">
+            <h2 data-slide-count="total" class="count-heading">04</h2>
+          </div>
+        </div>
+        <div class="overlay-nav-row"><button aria-label="previous slide" data-slider="button-prev" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button><button aria-label="previous slide" data-slider="button-next" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow next">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="slider-wrap">
+        <div data-slider="list" class="slider-list">
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f74ff2fe8b0b912b97_slide-1.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº001</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide active">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7cf52dd961b48a1e2_slide-2.avif" loading="lazy" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº002</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7f7cce73267703347_slide-3.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº003</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f7ccfd203c82a46798_slide-4.avif" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº004</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cloneable">
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="overlay-count-row">
+          <div class="count-column">
+            <h2 data-slide-count="step" class="count-heading">01</h2>
+          </div>
+          <div class="count-row-divider"></div>
+          <div class="count-column">
+            <h2 data-slide-count="total" class="count-heading">04</h2>
+          </div>
+        </div>
+        <div class="overlay-nav-row"><button aria-label="previous slide" data-slider="button-prev" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button><button aria-label="previous slide" data-slider="button-next" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow next">
+              <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+            </svg>
+            <div class="button-overlay">
+              <div class="overlay-corner"></div>
+              <div class="overlay-corner top-right"></div>
+              <div class="overlay-corner bottom-left"></div>
+              <div class="overlay-corner bottom-right"></div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="slider-wrap">
+        <div data-slider="list" class="slider-list">
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/cpj8aq3e5plxlbil7ofg.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº001</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide active">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/fgtfpgxwflmvaxj5woj8.jpg" loading="lazy" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº002</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/jzfw68xo0inrfbfjlhtz.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº003</p>
+              </div>
+            </div>
+          </div>
+          <div data-slider="slide" class="slider-slide">
+            <div class="slide-inner"><img src="https://res.cloudinary.com/angoooo/image/upload/v1751582222/fgtfpgxwflmvaxj5woj8.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, 560px" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
+              <div class="slide-caption">
+                <div class="caption-dot"></div>
+                <p class="caption">Layout nº004</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<div class="gallery-container2" style="padding-bottom: 200px;"></div>
+
+<footer id="footer">
+    <div class="col col1">
+      <h3>CoolSite</h3>
+      <p>Made with <span style="color: #BA6573;"></span> pepperblack</p>
+      <div class="social">
+        <a
+          href="https://codepen.io/Juxtopposed"
+          target="_blank"
+          class="link"
+          ><img
+            src="https://assets.codepen.io/9051928/codepen_1.png"
+            alt="Codepen"
+        /></a>
+        <a href="https://twitter.com/juxtopposed" target="_blank" class="link"
+          ><img
+            src="https://assets.codepen.io/9051928/x.png"
+            alt="Twitter"
+        /></a>
+        <a href="https://youtube.com/@juxtopposed" target="_blank" class="link"
+          ><img
+            src="https://assets.codepen.io/9051928/youtube_1.png"
+            alt="YouTube"
+        /></a>
+      </div>
+      <p style="color: #818181; font-size: smaller">2025 © All Rights Reserved</p>
+    </div>
+    <div class="col col2">
+      <p>About</p>
+      <p>Our mission</p>
+      <p>Privacy Policy</p>
+      <p>Terms of service</p>
+    </div>
+    <div class="col col3">
+      <p>Services</p>
+      <p>Products</p>
+      <p>Join our team</p>
+      <p>Partner with us</p>
+    </div>
+    <div class="backdrop"></div>
+  </footer>
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/InertiaPlugin.min.js"></script>
+
+<script>
+  document.querySelectorAll('.svg-button').forEach(button => {
+    const path = button.querySelector('svg path');
+    const length = path.getTotalLength();
+
+    // Inicializa el stroke dash con el largo total (oculto)
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    // Animar el trazo en hover
+    button.addEventListener('mouseenter', () => {
+      path.style.transition = 'stroke-dashoffset 1.2s ease';
+      path.style.strokeDashoffset = '0';
+    });
+
+    button.addEventListener('mouseleave', () => {
+      path.style.transition = 'stroke-dashoffset 1.2s ease';
+      path.style.strokeDashoffset = length;
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('.js-spanize').each(function () {
+      var text = $(this).text().trim();
+      var spanned = '';
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i] === ' ' ? '&nbsp;' : text[i];
+        spanned += `<span style="animation-delay:${i * 0.05}s">${char}</span>`;
+      }
+      $(this).html(spanned);
+    });
+  });
+</script>
+
+
+
+<script>
+  window.addEventListener('scroll', () => {
+    const footer = document.getElementById('footer');
+    const scrollY = window.scrollY;
+    const triggerPoint = document.documentElement.scrollHeight - window.innerHeight - 100; // 100px antes del final
+
+    if (scrollY >= triggerPoint) {
+      footer.classList.add('visible');
+    } else {
+      footer.classList.remove('visible');
+    }
+  });
+</script>
+<script>
+  window.addEventListener('scroll', () => {
+    const gallery = document.querySelector('.gallery-container2');
+    const footer = document.getElementById('footer');
+    const galleryRect = gallery.getBoundingClientRect();
+
+    if (galleryRect.top <= window.innerHeight && galleryRect.bottom > 0) {
+      const scrollProgress = Math.min(
+        Math.abs(galleryRect.top - window.innerHeight) / gallery.offsetHeight,
+        1
+      );
+
+      footer.style.opacity = scrollProgress;
+      footer.style.transform = `translateY(${100 - scrollProgress * 100}%)`;
+      footer.style.pointerEvents = scrollProgress > 0 ? 'auto' : 'none';
+    } else {
+      footer.style.opacity = 0;
+      footer.style.transform = 'translateY(100%)';
+      footer.style.pointerEvents = 'none';
+    }
+  });
+  document.getElementById('footer').classList.add('visible');
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu-btn");
+  const menuIcon = menuBtn.querySelector("svg.ham1");
+  const closeBtn = document.getElementById("close-menu");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const bubble = document.getElementById("menu-bubble");
+
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to(bubble, {
+    scale: 50,
+    duration: 0.6,
+    ease: "power2.inOut"
+  });
+
+  function positionBubble() {
+    const rect = menuBtn.getBoundingClientRect();
+    const size = 20;
+    bubble.style.left = `${rect.left + rect.width / 2 - size / 2}px`;
+    bubble.style.top = `${rect.top + rect.height / 2 - size / 2}px`;
+  }
+
+  function openMenu() {
+    positionBubble();
+    bubble.style.display = "block";
+    bubble.style.transform = "scale(0)";
+    tl.play();
+
+    menuOverlay.style.display = "block";
+    setTimeout(() => {
+      menuOverlay.classList.add("show");
+      menuOverlay.setAttribute("aria-hidden", "false");
+    }, 300);
+
+    document.body.style.overflow = "hidden";
+    menuBtn.classList.add("open");
+    menuIcon.classList.add("active");
+  }
+
+  function closeMenu() {
+    menuOverlay.classList.remove("show");
+    menuOverlay.setAttribute("aria-hidden", "true");
+
+    setTimeout(() => {
+      menuOverlay.style.display = "none";
+    }, 300);
+
+    tl.reverse().then(() => {
+      bubble.style.display = "none";
+    });
+
+    document.body.style.overflow = "";
+    menuBtn.classList.remove("open");
+    menuIcon.classList.remove("active");
+  }
+
+  menuBtn.addEventListener("click", () => {
+    if (menuOverlay.classList.contains("show")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeBtn.addEventListener("click", closeMenu);
+
+  menuOverlay.addEventListener("click", (e) => {
+    if (e.target === menuOverlay) {
+      closeMenu();
+    }
+  });
+
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  menuItems.forEach((item) => {
+    const path = item.querySelector("path");
+    if (!path) return;
+
+    const length = path.getTotalLength();
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+
+    item.addEventListener("mouseenter", () => {
+      gsap.to(path, { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" });
+    });
+    item.addEventListener("mouseleave", () => {
+      gsap.to(path, { strokeDashoffset: length, duration: 0.2, ease: "power2.in" });
+    });
+  });
+});
+
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(Draggable, InertiaPlugin)
+
+  function initSlider(){
+    // Selecciona todos los contenedores .cloneable (cada carrusel)
+    const cloneables = document.querySelectorAll('.cloneable');
+
+    cloneables.forEach(container => {
+      // Selectores scoped al contenedor actual para que cada carrusel sea independiente
+      const wrapper = container.querySelector('[data-slider="list"]')  
+      const slides = gsap.utils.toArray('[data-slider="slide"]', container);
+
+      const nextButton = container.querySelector('[data-slider="button-next"]')
+      const prevButton = container.querySelector('[data-slider="button-prev"]')
+
+      const totalElement = container.querySelector('[data-slide-count="total"]');
+      const stepElement = container.querySelector('[data-slide-count="step"]');
+      const stepsParent = stepElement.parentElement;
+
+      let activeElement;
+      const totalSlides = slides.length;
+
+      // Actualiza el total de slides, con cero si es menor a 10
+      totalElement.textContent = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
+
+      // Limpiar y crear los pasos dinámicamente
+      stepsParent.innerHTML = '';
+      slides.forEach((_, index) => {
+        const stepClone = stepElement.cloneNode(true);
+        stepClone.textContent = index + 1 < 10 ? `0${index + 1}` : index + 1;
+        stepsParent.appendChild(stepClone);
+      });
+
+      // Todos los pasos creados
+      const allSteps = stepsParent.querySelectorAll('[data-slide-count="step"]');
+
+      // Crear timeline con horizontalLoop para cada carrusel
+      const loop = horizontalLoop(slides, {
+        paused: true,
+        draggable: true,
+        center: false,
+        onChange: (element, index) => {
+          activeElement && activeElement.classList.remove("active");
+          const nextSibling = element.nextElementSibling || slides[0];
+          nextSibling.classList.add("active");
+          activeElement = nextSibling;
+
+          gsap.to(allSteps, { y: `${-100 * index}%`, ease: "power3", duration: 0.45 });
+        }
+      });
+
+      // Click en cada slide
+      slides.forEach((slide, i) => slide.addEventListener("click", () => loop.toIndex(i - 1, {ease:"power3",duration: 0.725})));
+
+      // Botones siguiente/anterior
+      nextButton.addEventListener("click", () => loop.next({ease:"power3", duration: 0.725}));
+      prevButton.addEventListener("click", () => loop.previous({ease:"power3", duration: 0.725}));
+    });
+  }
+
+  function horizontalLoop(items, config) {
+  let timeline;
+  items = gsap.utils.toArray(items);
+  config = config || {};
+  gsap.context(() => { 
+    let onChange = config.onChange,
+      lastIndex = 0,
+      tl = gsap.timeline({repeat: config.repeat, onUpdate: onChange && function() {
+          let i = tl.closestIndex();
+          if (lastIndex !== i) {
+            lastIndex = i;
+            onChange(items[i], i);
+          }
+        }, paused: config.paused, defaults: {ease: "none"}, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)}),
+      length = items.length,
+      startX = items[0].offsetLeft,
+      times = [],
+      widths = [],
+      spaceBefore = [],
+      xPercents = [],
+      curIndex = 0,
+      indexIsDirty = false,
+      center = config.center,
+      pixelsPerSecond = (config.speed || 1) * 100,
+      snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1),
+      timeOffset = 0,
+      container = center === true ? items[0].parentNode : gsap.utils.toArray(center)[0] || items[0].parentNode,
+      totalWidth,
+      getTotalWidth = () => items[length-1].offsetLeft + xPercents[length-1] / 100 * widths[length-1] - startX + spaceBefore[0] + items[length-1].offsetWidth * gsap.getProperty(items[length-1], "scaleX") + (parseFloat(config.paddingRight) || 0),
+      populateWidths = () => {
+        let b1 = container.getBoundingClientRect(), b2;
+        items.forEach((el, i) => {
+          widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+          xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / widths[i] * 100 + gsap.getProperty(el, "xPercent"));
+          b2 = el.getBoundingClientRect();
+          spaceBefore[i] = b2.left - (i ? b1.right : b1.left);
+          b1 = b2;
+        });
+        gsap.set(items, {
+          xPercent: i => xPercents[i]
+        });
+        totalWidth = getTotalWidth();
+      },
+      timeWrap,
+      populateOffsets = () => {
+        timeOffset = center ? tl.duration() * (container.offsetWidth / 2) / totalWidth : 0;
+        center && times.forEach((t, i) => {
+          times[i] = timeWrap(tl.labels["label" + i] + tl.duration() * widths[i] / 2 / totalWidth - timeOffset);
+        });
+      },
+      getClosest = (values, value, wrap) => {
+        let i = values.length,
+          closest = 1e10,
+          index = 0, d;
+        while (i--) {
+          d = Math.abs(values[i] - value);
+          if (d > wrap / 2) {
+            d = wrap - d;
+          }
+          if (d < closest) {
+            closest = d;
+            index = i;
+          }
+        }
+        return index;
+      },
+      populateTimeline = () => {
+        let i, item, curX, distanceToStart, distanceToLoop;
+        tl.clear();
+        for (i = 0; i < length; i++) {
+          item = items[i];
+          curX = xPercents[i] / 100 * widths[i];
+          distanceToStart = item.offsetLeft + curX - startX + spaceBefore[0];
+          distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+          tl.to(item, {xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond}, 0)
+            .fromTo(item, {xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100)}, {xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false}, distanceToLoop / pixelsPerSecond)
+            .add("label" + i, distanceToStart / pixelsPerSecond);
+          times[i] = distanceToStart / pixelsPerSecond;
+        }
+        timeWrap = gsap.utils.wrap(0, tl.duration());
+      },
+      refresh = (deep) => {
+        let progress = tl.progress();
+        tl.progress(0, true);
+        populateWidths();
+        deep && populateTimeline();
+        populateOffsets();
+        deep && tl.draggable ? tl.time(times[curIndex], true) : tl.progress(progress, true);
+      },
+      onResize = () => refresh(true),
+      proxy;
+    gsap.set(items, {x: 0});
+    populateWidths();
+    populateTimeline();
+    populateOffsets();
+    window.addEventListener("resize", onResize);
+    function toIndex(index, vars) {
+      vars = vars || {};
+      (Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length);
+      let newIndex = gsap.utils.wrap(0, length, index),
+        time = times[newIndex];
+      if (time > tl.time() !== index > curIndex && index !== curIndex) {
+        time += tl.duration() * (index > curIndex ? 1 : -1);
+      }
+      if (time < 0 || time > tl.duration()) {
+        vars.modifiers = {time: timeWrap};
+      }
+      curIndex = newIndex;
+      vars.overwrite = true;
+      gsap.killTweensOf(proxy);
+      return vars.duration === 0 ? tl.time(timeWrap(time)) : tl.tweenTo(time, vars);
+    }
+    tl.toIndex = (index, vars) => toIndex(index, vars);
+    tl.closestIndex = setCurrent => {
+      let index = getClosest(times, tl.time(), tl.duration());
+      if (setCurrent) {
+        curIndex = index;
+        indexIsDirty = false;
+      }
+      return index;
+    };
+    tl.current = () => indexIsDirty ? tl.closestIndex(true) : curIndex;
+    tl.next = vars => toIndex(tl.current()+1, vars);
+    tl.previous = vars => toIndex(tl.current()-1, vars);
+    tl.times = times;
+    tl.progress(1, true).progress(0, true);
+    if (config.reversed) {
+      tl.vars.onReverseComplete();
+      tl.reverse();
+    }
+    if (config.draggable && typeof(Draggable) === "function") {
+      proxy = document.createElement("div")
+      let wrap = gsap.utils.wrap(0, 1),
+        ratio, startProgress, draggable, dragSnap, lastSnap, initChangeX, wasPlaying,
+        align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
+        syncIndex = () => tl.closestIndex(true);
+      typeof(InertiaPlugin) === "undefined" && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club");
+      draggable = Draggable.create(proxy, {
+        trigger: items[0].parentNode,
+        type: "x",
+        onPressInit() {
+          let x = this.x;
+          gsap.killTweensOf(tl);
+          wasPlaying = !tl.paused();
+          tl.pause();
+          startProgress = tl.progress();
+          refresh();
+          ratio = 1 / totalWidth;
+          initChangeX = (startProgress / -ratio) - x;
+          gsap.set(proxy, {x: startProgress / -ratio});
+        },
+        onDrag: align,
+        onThrowUpdate: align,
+        overshootTolerance: 0,
+        inertia: true,
+        snap(value) {
+          if (Math.abs(startProgress / -ratio - this.x) < 10) {
+            return lastSnap + initChangeX
+          }
+          let time = -(value * ratio) * tl.duration(),
+            wrappedTime = timeWrap(time),
+            snapTime = times[getClosest(times, wrappedTime, tl.duration())],
+            dif = snapTime - wrappedTime;
+          Math.abs(dif) > tl.duration() / 2 && (dif += dif < 0 ? tl.duration() : -tl.duration());
+          lastSnap = (time + dif) / tl.duration() / -ratio;
+          return lastSnap;
+        },
+        onRelease() {
+          syncIndex();
+          draggable.isThrowing && (indexIsDirty = true);
+        },
+        onThrowComplete: () => {
+          syncIndex();
+          wasPlaying && tl.play();
+        }
+      })[0];
+      tl.draggable = draggable;
+    }
+    tl.closestIndex(true);
+    lastIndex = curIndex;
+    onChange && onChange(items[curIndex], curIndex);
+    timeline = tl;
+    return () => window.removeEventListener("resize", onResize); 
+  });
+  return timeline;
+}
+
+
+  // Inicializa sliders
+  initSlider();
+
+});
+</script>
+
+
+
+
+
+
+</html>
